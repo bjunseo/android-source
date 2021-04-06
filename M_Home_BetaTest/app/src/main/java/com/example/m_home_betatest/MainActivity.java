@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    
 
     public void onClick(View view){
         switch (view.getId())
@@ -27,6 +26,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
         }
-
     }
 }

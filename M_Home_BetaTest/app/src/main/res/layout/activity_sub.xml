@@ -28,9 +28,40 @@
                 android:layout_height="wrap_content"
                 android:text="2"/>
         </LinearLayout>
-        <ListView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/sta_v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="manual"/>
+            <Switch
+                android:id="@+id/sta_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <TextView
+            android:text="0"
+            android:id="@+id/Temp_V"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:onClick="onClick"
+            android:text="+"
+            android:id="@+id/Temp_U"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:onClick="onClick"
+            android:text="-"
+            android:id="@+id/Temp_M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
