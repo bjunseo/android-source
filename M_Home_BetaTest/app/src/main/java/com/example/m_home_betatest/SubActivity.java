@@ -45,16 +45,22 @@ public class SubActivity extends AppCompatActivity {
 
     }
 
-    public void onClick(View view){
+    public void onClick_page(View view){
+        switch (view.getId()) {
+            case R.id.f:
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.s:
+                 Toast.makeText(this.getApplicationContext(), "현재 페이지 입니다.", Toast.LENGTH_SHORT).show();
+                 break;
+            }
+
+    }
+
+    public void onClick_tempe(View view){
         if(sta == true) {
             switch (view.getId()) {
-                case R.id.f:
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
-                    break;
-                case R.id.s:
-                    Toast.makeText(this.getApplicationContext(), "현재 페이지 입니다.", Toast.LENGTH_SHORT).show();
-                    break;
                 case R.id.Temp_U:
                     now_temp++;
                     textView.setText(Integer.toString(now_temp));
