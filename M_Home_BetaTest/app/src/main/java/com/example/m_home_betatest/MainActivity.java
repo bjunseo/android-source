@@ -14,25 +14,20 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ListView mListView;
     int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listview ;
-        ListViewBtnAdapter adapter;
-        ArrayList<ListViewBtnItem> items = new ArrayList<ListViewBtnItem>() ;
 
         // items 로드.
-        loadItemsFromDB(items) ;
+        /* 위젯과 멤버변수 참조 획득 */
+        mListView = (ListView)findViewById(R.id.list_view);
 
-        // Adapter 생성
-        adapter = new ListViewBtnAdapter(this, R.layout.listview_item, items, (ListViewBtnAdapter.ListBtnClickListener) this) ;
-
-        // 리스트뷰 참조 및 Adapter달기
-        listview = (ListView) findViewById(R.id.list_view);
-        listview.setAdapter(adapter);
+        /* 아이템 추가 및 어댑터 등록 */
+        dataSetting();
     }
 
     public void onClick(View view){
@@ -48,42 +43,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public boolean loadItemsFromDB(ArrayList<ListViewBtnItem> list) {
-        ListViewBtnItem item ;
-        int i ;
+    private void dataSetting(){
 
-        if (list == null) {
-            list = new ArrayList<ListViewBtnItem>() ;
+        ListViewBtnAdapter mMyAdapter = new ListViewBtnAdapter();
+
+
+        for (int i=0; i<10; i++) {
+            mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.auto), "name_" + i, "contents_" + i);
         }
 
-        // 순서를 위한 i 값을 1로 초기화.
-        i = 1 ;
-
-        // 아이템 생성.
-        item = new ListViewBtnItem() ;
-        item.setIcon(ContextCompat.getDrawable(this, R.drawable.curtain)) ;
-        item.setText(Integer.toString(i) + "번 아이템입니다.") ;
-        list.add(item) ;
-        i++ ;
-
-        item = new ListViewBtnItem() ;
-        item.setIcon(ContextCompat.getDrawable(this, R.drawable.light_bulb)) ;
-        item.setText(Integer.toString(i) + "번 아이템입니다.") ;
-        list.add(item) ;
-        i++ ;
-
-        item = new ListViewBtnItem() ;
-        item.setIcon(ContextCompat.getDrawable(this, R.drawable.thermometer)) ;
-        item.setText(Integer.toString(i) + "번 아이템입니다.") ;
-        list.add(item) ;
-        i++ ;
-
-        item = new ListViewBtnItem() ;
-        item.setIcon(ContextCompat.getDrawable(this, R.drawable.window)) ;
-        item.setText(Integer.toString(i) + "번 아이템입니다.") ;
-        list.add(item) ;
-
-        return true ;
+        /* 리스트뷰에 어댑터 등록 */
+        mListView.setAdapter(mMyAdapter);
     }
+
 
 }

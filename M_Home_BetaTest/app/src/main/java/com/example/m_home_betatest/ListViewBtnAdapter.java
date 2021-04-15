@@ -1,93 +1,79 @@
 package com.example.m_home_betatest;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CompoundButton;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-public class ListViewBtnAdapter extends ArrayAdapter implements View.OnClickListener  {
+public class ListViewBtnAdapter extends BaseAdapter {
     // 버튼 클릭 이벤트를 위한 Listener 인터페이스 정의.
-    public interface ListBtnClickListener {
-        void onListBtnClick(int position) ;
+    private ArrayList<ListViewBtnItem> mItems = new ArrayList<>();
+
+    @Override
+    public int getCount() {
+        return mItems.size();
     }
 
-    // 생성자로부터 전달된 resource id 값을 저장.
-    int resourceId ;
-    // 생성자로부터 전달된 ListBtnClickListener  저장.
-    private ListBtnClickListener listBtnClickListener ;
-
-    ListViewBtnAdapter(Context context, int resource, ArrayList<ListViewBtnItem> list, ListBtnClickListener clickListener) {
-        super(context, resource, list) ;
-
-        // resource id 값 복사. (super로 전달된 resource를 참조할 방법이 없음.)
-        this.resourceId = resource ;
-
-        this.listBtnClickListener = clickListener ;
+    @Override
+    public ListViewBtnItem getItem(int position) {
+        return mItems.get(position);
     }
 
-    // 새롭게 만든 Layout을 위한 View를 생성하는 코드
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final int pos = position ;
-        final Context context = parent.getContext();
 
-        // 생성자로부터 저장된 resourceId(listview_btn_item)에 해당하는 Layout을 inflate하여 convertView 참조 획득.
+        Context context = parent.getContext();
+
+        /* 'listview_custom' Layout을 inflate하여 convertView 참조 획득 */
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(this.resourceId/*R.layout.listview_btn_item*/, parent, false);
-        }
+    LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    convertView = inflater.inflate(R.layout.listview_item, parent, false);
+}
 
-        // 화면에 표시될 View(Layout이 inflate된)로부터 위젯에 대한 참조 획득
-        final ImageView iconImageView = (ImageView) convertView.findViewById(R.id.imageView1);
-        final TextView textTextView = (TextView) convertView.findViewById(R.id.textView1);
+    /* 'listview_custom'에 정의된 위젯에 대한 참조 획득 */
+    ImageView iv_img = (ImageView) convertView.findViewById(R.id.iv_img) ;
+    TextView tv_name = (TextView) convertView.findViewById(R.id.tv_name) ;
+    TextView tv_contents = (TextView) convertView.findViewById(R.id.tv_contents) ;
 
-        // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        final ListViewBtnItem listViewItem = (ListViewBtnItem) getItem(position);
+    /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
+    ListViewBtnItem myItem = getItem(position);
 
-        // 아이템 내 각 위젯에 데이터 반영
-        iconImageView.setImageDrawable(listViewItem.getIcon());
-        textTextView.setText(listViewItem.getText());
+/* 각 위젯에 세팅된 아이템을 뿌려준다 */
+        iv_img.setImageDrawable(myItem.getIcon());
+                tv_name.setText(myItem.getName());
+                tv_contents.setText(myItem.getContents());
 
-        // button1 클릭 시 TextView(textView1)의 내용 변경.
-        Switch sw = (Switch) convertView.findViewById(R.id.switch1);
-        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked == true)
-                {
+                /* (위젯에 대한 이벤트리스너를 지정하고 싶다면 여기에 작성하면된다..)  */
 
+
+                return convertView;
                 }
-                else
-                {
 
-                }
-            }
-        });
+/* 아이템 데이터 추가를 위한 함수. 자신이 원하는대로 작성 */
+public void addItem(Drawable img, String name, String contents) {
 
-        return convertView;
-    }
+        ListViewBtnItem mItem = new ListViewBtnItem();
 
-    // button2가 눌려졌을 때 실행되는 onClick함수.
-    public void onClick(View v) {
-        // ListBtnClickListener(MainActivity)의 onListBtnClick() 함수 호출.
-        if (this.listBtnClickListener != null) {
-            this.listBtnClickListener.onListBtnClick((int)v.getTag()) ;
+        /* MyItem에 아이템을 setting한다. */
+        mItem.setIcon(img);
+        mItem.setName(name);
+        mItem.setContents(contents);
+
+        /* mItems에 MyItem을 추가한다. */
+        mItems.add(mItem);
+
         }
-    }
-
 }
