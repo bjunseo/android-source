@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_margin="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="301dp"
+            android:layout_height="301dp">
+
+            <TableRow>
+                <Space
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"/>
+                <Button
+                    android:onClick=""
+                    android:id="@+id/btn_F"
+                    android:text="▲"
+                    android:textSize="50dp"
+                    android:layout_height="100dp"
+                    android:layout_width="100dp"/>
+
+            </TableRow>
+
+            <TableRow>
+                <Button
+                    android:id="@+id/btn_L"
+                    android:text="◀"
+                    android:textSize="50dp"
+                    android:layout_height="100dp"
+                    android:layout_width="100dp"/>
+                <Space
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"/>
+                <Button
+                    android:id="@+id/btn_R"
+                    android:text="▶"
+                    android:textSize="50dp"
+                    android:layout_height="100dp"
+                    android:layout_width="100dp"/>
+
+            </TableRow>
+
+            <TableRow>
+                <Space
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"/>
+                <Button
+                    android:id="@+id/btn_B"
+                    android:text="▼"
+                    android:textSize="50dp"
+                    android:layout_height="100dp"
+                    android:layout_width="100dp"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
