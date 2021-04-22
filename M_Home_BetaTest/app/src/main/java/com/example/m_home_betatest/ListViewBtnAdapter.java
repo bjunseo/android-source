@@ -62,8 +62,8 @@ public class ListViewBtnAdapter extends BaseAdapter {
                 return convertView;
                 }
 
-/* 아이템 데이터 추가를 위한 함수. 자신이 원하는대로 작성 */
-public void addItem(Drawable img, String name, String contents) {
+    /* 아이템 데이터 추가를 위한 함수. 자신이 원하는대로 작성 */
+    public void addItem(Drawable img, String name, String contents) {
 
         ListViewBtnItem mItem = new ListViewBtnItem();
 

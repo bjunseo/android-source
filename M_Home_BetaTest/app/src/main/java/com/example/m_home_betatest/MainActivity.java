@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         // items 로드.
         /* 위젯과 멤버변수 참조 획득 */
         mListView = (ListView)findViewById(R.id.list_view);
@@ -47,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         ListViewBtnAdapter mMyAdapter = new ListViewBtnAdapter();
 
-
-        for (int i=0; i<10; i++) {
-            mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.auto), "name_" + i, "contents_" + i);
-        }
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.light_bulb), "light bulb" , "" );
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.door), "door" , "" );
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.window), "window" , "" );
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.curtain), "curtain" , "" );
 
         /* 리스트뷰에 어댑터 등록 */
         mListView.setAdapter(mMyAdapter);
