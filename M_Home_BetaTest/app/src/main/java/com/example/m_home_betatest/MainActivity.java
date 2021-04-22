@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.door), "door" , "" );
         mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.window), "window" , "" );
         mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.curtain), "curtain" , "" );
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.light_bulb), "light bulb" , "" );
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.door), "door" , "" );
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.window), "window" , "" );
+        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.curtain), "curtain" , "" );
 
         /* 리스트뷰에 어댑터 등록 */
         mListView.setAdapter(mMyAdapter);

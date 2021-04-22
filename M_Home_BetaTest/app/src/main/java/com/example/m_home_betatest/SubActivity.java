@@ -23,8 +23,6 @@ public class SubActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.Temp_V);
         textView.setText(Integer.toString(now_temp));
 
-        TextView t = (TextView) findViewById(R.id.sta);
-
         mySwitch = (Switch) findViewById(R.id.sta_s);
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -32,12 +30,10 @@ public class SubActivity extends AppCompatActivity {
                 if(isChecked == true)
                 {
                     sta = true;
-                    t.setText("true");
                 }
                 else
                 {
                     sta = false;
-                    t.setText("false");
                 }
             }
         });
