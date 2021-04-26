@@ -59,16 +59,18 @@ public class SubActivity extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.Temp_U:
                     now_temp++;
+                    if(now_temp > 35) now_temp--;
                     textView.setText(Integer.toString(now_temp));
                     break;
                 case R.id.Temp_M:
                     now_temp--;
+                    if(now_temp < 20) now_temp++;
                     textView.setText(Integer.toString(now_temp));
                     break;
             }
         }
         else {
-
+            Toast.makeText(this.getApplicationContext(), "자동모드",Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         /* 아이템 추가 및 어댑터 등록 */
         dataSetting();
+
+
+
     }
 
     public void onClick(View view){
@@ -46,10 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         ListViewBtnAdapter mMyAdapter = new ListViewBtnAdapter();
 
-        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.light_bulb), "light bulb" , "" );
-        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.door), "door" , "" );
-        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.window), "window" , "" );
-        mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.curtain), "curtain" , "" );
         mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.light_bulb), "light bulb" , "" );
         mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.door), "door" , "" );
         mMyAdapter.addItem(ContextCompat.getDrawable(getApplicationContext(), R.drawable.window), "window" , "" );

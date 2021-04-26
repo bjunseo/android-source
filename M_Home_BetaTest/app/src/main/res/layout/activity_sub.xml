@@ -19,8 +19,7 @@
             android:text="My Home"
             android:textColor="#4893DF"
             android:textSize="40dp"
-            android:textStyle="bold"
-            android:elevation="20dp"/>
+            android:textStyle="bold"/>
 
 
         <LinearLayout
@@ -43,7 +42,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:switchMinWidth="60dp"/>
+                android:switchMinWidth="50dp"/>
 
         </LinearLayout>
 
