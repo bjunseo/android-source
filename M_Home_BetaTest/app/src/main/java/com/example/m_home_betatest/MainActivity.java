@@ -27,9 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         /* 아이템 추가 및 어댑터 등록 */
         dataSetting();
-
-
-
     }
 
     public void onClick(View view){

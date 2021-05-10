@@ -59,7 +59,7 @@ public class SubActivity extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.Temp_U:
                     now_temp++;
-                    if(now_temp > 35) now_temp--;
+                    if(now_temp > 40) now_temp--;
                     textView.setText(Integer.toString(now_temp));
                     break;
                 case R.id.Temp_M:
